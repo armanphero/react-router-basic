@@ -1,10 +1,14 @@
 import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 const UserDetail = () => {
     const user = useLoaderData();
-    // console.log(user);
+    if(!user.name){
+        return <p className='text-4xl text-red-500 text-center my-4'>This route doesn't exist!</p>
+    }
     const { name, email, website, phone, address, id } = user;
+    console.log(name, email);
     const navigate = useNavigate();
     const handleBackBtn = () => {
         navigate(-1);
@@ -19,7 +23,7 @@ const UserDetail = () => {
             <p>Phone : {phone}</p>
             <div>
                 {
-                    Object.keys(address).map((singleAddress, index) => {
+                    address && Object.keys(address).map((singleAddress, index) => {
                         if (singleAddress !== 'geo') {
                             return <p key={index}>{singleAddress} : {address[singleAddress]}</p>
                         }
