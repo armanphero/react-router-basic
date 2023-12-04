@@ -5,10 +5,10 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 const UserDetail = () => {
     const user = useLoaderData();
     if(!user.name){
-        return <p className='text-4xl text-red-500 text-center my-4'>This route doesn't exist!</p>
+        return <ErrorMessage />
     }
     const { name, email, website, phone, address, id } = user;
-    console.log(name, email);
+    // console.log(name, email);
     const navigate = useNavigate();
     const handleBackBtn = () => {
         navigate(-1);
