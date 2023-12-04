@@ -3,7 +3,7 @@ import { useRouteError } from 'react-router-dom';
 
 const ErrorMessage = () => {
     const error = useRouteError();
-    // console.log(error);
+    console.log(error);
     return (
         <div>
             <h1 className='text-2xl text-center font-bold my-5'>Ops! It looks like you lost the way.</h1>
